@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+
+  node:
+    container_name: chessts-node
+    build:
+      context: ./
+      dockerfile: node.Dockerfile
+    tty: true
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    networks:
+      - chessts-network
+
+networks:
+  chessts-network:
+    driver: bridge
